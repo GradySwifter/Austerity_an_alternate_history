@@ -72,11 +72,11 @@ go-to: menu
 
 **Projected election results** (if the election were to be held now):
 
-# 1928: 30, 1930: 25, 1932: 22
-SPD: [+ spd_votes +]%
-
 # 1928: 15, 1930: 15, 1932: 
 Z + BVP: [+ z_votes +]%
+
+# 1928: 30, 1930: 25, 1932: 22
+SPD: [+ spd_votes +]%
 
 # 1928: 10, 1930: 13
 KPD: [+ kpd_votes +]%
@@ -98,27 +98,24 @@ Others: [+ other_votes +]%
 
 **Detailed results for each demographic**
 
-Workers: SPD: [+ workers_spd_normalized +]%, Z: [+ workers_z_normalized +]%, KPD: [+ workers_kpd_normalized +]%, DDP: [+ workers_ddp_normalized +]%, DVP: [+ workers_dvp_normalized +]%; DNVP: [+ workers_dnvp_normalized +]%, NSDAP: [+ workers_nsdap_normalized +]%, Others: [+ workers_other_normalized +]%
+Workers: Z: [+ workers_z_normalized +]%, SPD: [+ workers_spd_normalized +]%, KPD: [+ workers_kpd_normalized +]%, DDP: [+ workers_ddp_normalized +]%, DVP: [+ workers_dvp_normalized +]%; DNVP: [+ workers_dnvp_normalized +]%, NSDAP: [+ workers_nsdap_normalized +]%, Others: [+ workers_other_normalized +]%
 
-New Middle Class: SPD: [+ new_middle_spd_normalized +]%, Z: [+ new_middle_z_normalized +]%, KPD: [+ new_middle_kpd_normalized +]%, DDP: [+ new_middle_ddp_normalized +]%, DVP: [+ new_middle_dvp_normalized +]%; DNVP: [+ new_middle_dnvp_normalized +]%, NSDAP: [+ new_middle_nsdap_normalized +]%, Others: [+ new_middle_other_normalized +]%
+New Middle Class: Z: [+ new_middle_z_normalized +]%, SPD: [+ new_middle_spd_normalized +]%, KPD: [+ new_middle_kpd_normalized +]%, DDP: [+ new_middle_ddp_normalized +]%, DVP: [+ new_middle_dvp_normalized +]%; DNVP: [+ new_middle_dnvp_normalized +]%, NSDAP: [+ new_middle_nsdap_normalized +]%, Others: [+ new_middle_other_normalized +]%
 
-Old Middle Class: SPD: [+ old_middle_spd_normalized +]%, Z: [+ old_middle_z_normalized +]%, KPD: [+ old_middle_kpd_normalized +]%, DDP: [+ old_middle_ddp_normalized +]%, DVP: [+ old_middle_dvp_normalized +]%; DNVP: [+ old_middle_dnvp_normalized +]%, NSDAP: [+ old_middle_nsdap_normalized +]%, Others: [+ old_middle_other_normalized +]%
+Old Middle Class: Z: [+ old_middle_z_normalized +]%, SPD: [+ old_middle_spd_normalized +]%, KPD: [+ old_middle_kpd_normalized +]%, DDP: [+ old_middle_ddp_normalized +]%, DVP: [+ old_middle_dvp_normalized +]%; DNVP: [+ old_middle_dnvp_normalized +]%, NSDAP: [+ old_middle_nsdap_normalized +]%, Others: [+ old_middle_other_normalized +]%
 
-Rural: SPD: [+ rural_spd_normalized +]%, Z: [+ rural_z_normalized +]%, KPD: [+ rural_kpd_normalized +]%, DDP: [+ rural_ddp_normalized +]%, DVP: [+ rural_dvp_normalized +]%; DNVP: [+ rural_dnvp_normalized +]%, NSDAP: [+ rural_nsdap_normalized +]%, Others: [+ rural_other_normalized +]%
+Rural: Z: [+ rural_z_normalized +]%, SPD: [+ rural_spd_normalized +]%, KPD: [+ rural_kpd_normalized +]%, DDP: [+ rural_ddp_normalized +]%, DVP: [+ rural_dvp_normalized +]%; DNVP: [+ rural_dnvp_normalized +]%, NSDAP: [+ rural_nsdap_normalized +]%, Others: [+ rural_other_normalized +]%
 
-Unemployed: SPD: [+ unemployed_spd_normalized +]%, Z: [+ unemployed_z_normalized +]%, KPD: [+ unemployed_kpd_normalized +]%, DDP: [+ unemployed_ddp_normalized +]%, DVP: [+ unemployed_dvp_normalized +]%; DNVP: [+ unemployed_dnvp_normalized +]%, NSDAP: [+ unemployed_nsdap_normalized +]%, Others: [+ unemployed_other_normalized +]%
+Unemployed: Z: [+ unemployed_z_normalized +]%, SPD: [+ unemployed_spd_normalized +]%, KPD: [+ unemployed_kpd_normalized +]%, DDP: [+ unemployed_ddp_normalized +]%, DVP: [+ unemployed_dvp_normalized +]%; DNVP: [+ unemployed_dnvp_normalized +]%, NSDAP: [+ unemployed_nsdap_normalized +]%, Others: [+ unemployed_other_normalized +]%
 
-Catholics: SPD: [+ catholics_spd_normalized +]%, Z: [+ catholics_z_normalized +]%, KPD: [+ catholics_kpd_normalized +]%, DDP: [+ catholics_ddp_normalized +]%, DVP: [+ catholics_dvp_normalized +]%; DNVP: [+ catholics_dnvp_normalized +]%, NSDAP: [+ catholics_nsdap_normalized +]%, Others: [+ catholics_other_normalized +]%
+Catholics: Z: [+ catholics_z_normalized +]%, SPD: [+ catholics_spd_normalized +]%, KPD: [+ catholics_kpd_normalized +]%, DDP: [+ catholics_ddp_normalized +]%, DVP: [+ catholics_dvp_normalized +]%; DNVP: [+ catholics_dnvp_normalized +]%, NSDAP: [+ catholics_nsdap_normalized +]%, Others: [+ catholics_other_normalized +]%
 
 @parties
 go-to: menu
 
-**SPD** - *Sozialdemokratische Partei Deutschlands* (Social Democratic Party of Germany) - this is us. We are a socialist and democratic party of the working class. We are the heirs of the legacy of Marx and Engels, Lassalle and Bebel. We are the foremost defenders of the Republic. The modern SPD was formed from a merger of the "Majority" SPD, which supported the Great War, and the "Independent" SPD or USPD, which opposed the war.
+**SPD** - *Sozialdemokratische Partei Deutschlands* (Social Democratic Party of Germany) - a socialist and democratic party of the working class. They claim to be the heirs of the legacy of Marx and Engels, Lassalle and Bebel. They have been staunch defenders of the Republic. The modern SPD was formed from a merger of the "Majority" SPD, which supported the Great War, and the "Independent" SPD or USPD, which opposed the war.
 
-**Z** - *Zentrumspartei* (Center Party) - a centrist to center-right Catholic party that supports the Republic, and has historically supported many of our labor, welfare, and anti-militarist priorities. They have often been in coalitions with us. They are often associated with the **BVP** (Bavarian People's Party), which represents Catholics in Bavaria. [? if year >= 1930 or chancellor = "Brüning" : They have appeared to take a more conservative turn recently, with the rise of Brüning and the party leader, Ludwig Kaas. ?]
-
-Current relations: [+ z_relation : relationships +]
-
+**Z** - *Zentrumspartei* (Center Party) - This is us. a typically centrist to center-right Catholic party that supports the Republic, we have historically supported many labor, welfare, and anti-militarist priorities. We have been in every coalition thus formed in the German Republic, due to our centrist beliefs. We are often associated with the **BVP** (Bavarian People's Party), which represents Catholics in Bavaria. 
 # TODO: replace this with the german state party after 1930
 **DDP** - *Deutsche Demokratische Partei* (German Democratic Party) - a center-left liberal party, popular among the intelligensia and educated middle class. They have often been in coalitions with us. [? if year >= 1930 : They have recently renamed themselves the German State Party. ?]
 
@@ -197,15 +194,15 @@ Overall dissent: [+ dissent_percent : dissent +]
 
 **Left**
 
-Many leftists are former members of the USPD (the left-wing, anti-war Independent Social Democratic Party), or are young radicals. Many are interested in closer cooperation with the KPD, and some support extraparliamentary action.
+Whilst our Left are not as radical as even the Reformists of the SPD, they still are firmly committed to the Republic, and push for us to identify as a Republican party above all. They are in favour of cooperation with the SPD and the Reichsbanner, and some go so far as to identify as Catholic Socialists.
 
 Strength: [+ left_strength : strength +]
 
 Dissent: [+ left_dissent : dissent +]
 
-**Centrists**
+**Catholics**
 
-Centrists in the SPD are followers of the doctrine of orthodox Marxism as expounded by Karl Kautsky and later Rudolf Hilferding. They seek a middle course between reform and revolution, while defending the democratic state.
+Centrists in the Zentrum are followers of the doctrine of orthodox Marxism as expounded by Karl Kautsky and later Rudolf Hilferding. They seek a middle course between reform and revolution, while defending the democratic state.
 
 Strength: [+ center_strength : strength +]
 
