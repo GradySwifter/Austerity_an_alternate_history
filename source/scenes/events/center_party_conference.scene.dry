@@ -17,15 +17,15 @@ The consensus candidate on the right is Ludwig Kaas, a Catholic priest who repre
 - @joos: We will elect Joseph Joos as our party chair.
 - @papen: Against all odds and expectations, we have elected the widely-hated monarchist media baron Franz Von Papen as our party chair. God help us.
 @kaas
-subtitle: Kaas is an uncontroversial pick due to his religious profession.
-on-arrival: z_party_leader = "Kaas"; spd_relation -=5 right_dissent -=10; clerical_dissent -=10; catholics_z +=3;
+subtitle: Kaas is an uncontroversial pick due to his religious credentials.
+on-arrival: z_party_leader = "Kaas"; spd_relation -=5; right_dissent -=10; clerical_dissent -=10; catholics_z +=3;
 
 Ludwig Kaas has been selected as our chairman. He plans to preside over a rightward turn for us, but many are happy that we are moving away from cooperating so much with the Left.
 @joos
 unavailable-subtitle: Our relations are not good enough.
 subtitle: Joos supports cooperation with the Social Democrats, and is popular among our Labour demographics, as well as the left wing.
 choose-if: z_relation >= 70
-on-arrival: z_party_leader = "Joos"; catholics_spd +=2; workers_z +=3; right_dissent +=5; left_dissent -=5; spd_relations +=5
+on-arrival: z_party_leader = "Joos"; catholics_spd +=2; workers_z +=3; right_dissent +=5; left_dissent -=5; spd_relations +=5;
 
 Joseph Joos' election was somewhat unexpected, but not entirely. He will be a good pick to bring us closer to the Left and to the Workers of Germany. However, some on our right grumble about SPD campaigning on his behalf.
 @papen
@@ -33,6 +33,6 @@ choose-if: z_relation >= 62 and resources >= 1
 view-if: z_relation < 70
 unavailable-subtitle: [? if resources < 4 : Franz Von Papen is not willing to pour enough money into his election campaign. ?]
 subtitle: -4 resource. No one likes Franz Von Papen. This is a horrible decision. German democracy as we know it may just be destroyed by Franz Von Papen's election. We are never getting in a coaliton again.
-on-arrival: resources -=4; z_party_leader = "Papen"; catholics_z -=5; workers_z -=3; new_middle_z -=5; old_middle_z +=4; unemployed_z -=3; left_dissent +=50; clerical_dissent +=20; right_dissent -=20; spd_relations -=40; dnvp_relations +=15; nsdap_relations +=10; hindenburg_relations +=5; ddp_relations -=40
+on-arrival: resources -=4; z_party_leader = "Papen"; catholics_z -=5; workers_z -=3; new_middle_z -=5; old_middle_z +=4; unemployed_z -=3; left_dissent +=50; clerical_dissent +=20; right_dissent -=20; spd_relations -=40; dnvp_relations +=15; nsdap_relations +=10; hindenburg_relations +=5; ddp_relations -=40;
 
 Franz Von Papen has done the impossible; getting people to like him. After a colossal media and lobbying campaign, Von Papen, the out-of-touch far-right mogul who is a fan of tax cuts on the wealthy, has secured leadership of the Zentrum. Our Left wing is outraged, and our clericals aren't terribly happy either. Von Papen's first action was to cut all ties with the SPD, and begin outreach to the Far Right DNVP and NSDAP. However, Hindenburg is pleased, at least. And thank God for that, because our former coalition partners will never join us after this. 
