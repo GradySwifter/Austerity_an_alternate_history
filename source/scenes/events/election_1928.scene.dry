@@ -544,40 +544,32 @@ title: A "New Grand Coalition" of all the constitutional parties?
 subtitle: SPD + Z + BVP + [+ ddp_name +] + DVP + Others ([+ neo_weimar_coalition +]%)
 view-if: neo_weimar_coalition >= 50 and grand_coalition < 50
 choose-if: z_relation >= 50 and dvp_relation >= 30
-unavailable-subtitle: SPD + Z + BVP + [+ ddp_name +] + DVP + Others ([+ neo_weimar_coalition +]%) - [? if z_relation < 50 : We do not have adequate relations with the Center Party. ?][? if dvp_relation < 30 : We do not have adequate relations with the DVP. ?]
+unavailable-subtitle: SPD + Z + BVP + [+ ddp_name +] + DVP + Others ([+ neo_weimar_coalition +]%) - [? if spd_relation < 50 : We do not have adequate relations with the Center Party. ?][? if dvp_relation < 20 : We do not have adequate relations with the DVP. ?]
 
-How do we convince vehemently anti-socialist parties to allow us to form a majority coalition? Our largely benevolent relations with the Center and DVP may allow us some leverage.
+How do we convince such varied parties to form a majority coalition? Our largely benevolent relations with the SPD and DVP may allow us some leverage.
 
 - @use_resources
-- @toleration_bruning: No. We will tolerate a minority government.
+- @toleration_bruning: No. We will enter into a minority government.
 - @new_elections: No. We will have new elections.
 - @unity_government
 
 @use_resources
 title: Use our resources to smooth over the creation of a coalition.
-subtitle: -2 resources
-unavailable-subtitle: Not enough resources (need 2).
-choose-if: resources >= 2
-on-arrival: resources -= 2; spd_in_government = 1; in_grand_coalition = 1; left_dissent += 4;
+subtitle: -1 resources
+unavailable-subtitle: Not enough resources (need 1).
+choose-if: resources >= 1
+on-arrival: resources -= 1; z_in_government = 1; in_grand_coalition = 1; right_dissent += 4;
 achievement: constitutional_coalition
 
 We transfer some of our campaign funds to our putative coalition partners. Some would call this corruption, but perhaps it is necessary to save our democracy.
 
-Now, we have a new grand coalition, a "Constitutional Coalition" of all the non-fascist and non-communist parties. Leftists in our party are somewhat skeptical of this arrangement. 
+Now, we have a new grand coalition, a "Constitutional Coalition" of all the non-fascist and non-communist parties. 
 
 
 Who should be chancellor?
 
-- @join_bruning: For better or for worse, it must be Heinrich Brüning of the Center.
-- @braun_chancellor_new: Otto Braun for Chancellor?
+- @join_bruning: It must be Heinrich Brüning.
 
-@braun_chancellor_new
-subtitle: This will reduce our leverage in the ministries.
-view-if: not historical_mode or not spd_prussia
-on-arrival: leverage -= 10; chancellor = "Braun"; chancellor_party = "SPD"
-go-to: ministries
-
-We have assembled a new coalition under Otto Braun.
 
 
 @unity_government
@@ -585,14 +577,14 @@ title: The Center Party offers a "Government of National Unity" under Chancellor
 subtitle: SPD + Z + BVP + [+ ddp_name +] + DVP + Others ([+ neo_weimar_coalition +]%)
 view-if: z_party_leader == "Joos" and neo_weimar_coalition >= 50 and weimar_coalition < 50 and z_relation >= 10
 
-The Center Party leader, Joseph Joos, clearly sees the threat from the ascension of the anti-democratic extremist parties, and thus tries to negotiate a "Government of National Unity" to save the republic. This coalition would be led by Joseph Wirth, a left-leaning member of the Center Party and former chancellor, and would encompass all of the constitutional parties. Our role in this government might be limited, however.
+Our leader, Joseph Joos, clearly sees the threat from the ascension of the anti-democratic extremist parties, and thus tries to negotiate a "Government of National Unity" to save the republic. This coalition would be led by Joseph Wirth, a left-leaning member of our Party and former chancellor, and would encompass all of the constitutional parties. We'd have a fair bit of leverage, as the arrangers.
 
 - @unity_government_2
 - @reject_unity_government: No, we will not accept this offer.
 
 @unity_government_2
 title: Accept the offer!
-on-arrival: chancellor = "Wirth"; chancellor_party = "Z"; spd_in_government = 1; in_grand_coalition = 1; in_unity_government = 1; leverage = 15; z_relation += 5; dvp_relation += 4
+on-arrival: chancellor = "Wirth"; chancellor_party = "Z"; z_in_government = 1; in_grand_coalition = 1; in_unity_government = 1; leverage = 25; spd_relation += 5; dvp_relation += 4
 achievement: constitutional_coalition
 go-to: ministries
 
@@ -608,15 +600,6 @@ Our rejection of the unity government has hurt our relations with the bourgeois 
 - @toleration_bruning: We will tolerate a minority government led by Brüning.
 - @toleration_wirth: We will tolerate a minority government led by Joseph Wirth.
 - @new_elections: There will be new elections.
-
-
-@toleration_wirth
-view-if: z_party_leader = "Joos"
-choose-if: president == "Braun"
-unavailable-subtitle: President Hindenburg will not support a minority government led by Joseph Wirth.
-on-arrival: chancellor = "Wirth"; chancellor_party = "Z"; spd_in_government = 0; spd_toleration = 1; z_relation += 5; foreign_minister_party = "DVP"; interior_minister_party = "Z"; justice_minister_party = "I"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = "DVP"; agriculture_minister_party = "Z"; pro_republic -= 2;
-
-We have supported a minority government led by the Center Party under Chancellor Joseph Wirth.
 
 
 
@@ -653,45 +636,39 @@ There is no path to a majority government for now. The scheming around President
 
 # if NSDAP is largest party and Hindenburg is president, then Hindenburg appoints Hitler chancellor.
 
-@spd_majority
-title: SPD majority alone
-subtitle: SPD: [+ spd_r +]%
+@z_majority
+title: A Zentrum majority alone
+subtitle: Z: [+ z_r +]%
 view-if: spd_r >= 50
-on-arrival: chancellor = "Empty"; chancellor_party = "SPD"; spd_in_government = 1; in_spd_majority = 1; pro_republic += 5; foreign_minister_party = "SPD"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "SPD"; reichswehr_minister_party = "SPD"; economic_minister_party = "SPD"; finance_minister_party = "SPD"; agriculture_minister_party = "SPD"; reichswehr_loyalty -= 0.05; 
+on-arrival: chancellor = "Empty"; chancellor_party = "Z"; spd_in_government = 1; in_spd_majority = 1; pro_republic += 5; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = "Z"; labor_minister_party = "Z"; reichswehr_minister_party = "Z"; economic_minister_party = "Z"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; reichswehr_loyalty += 0.05; 
 achievement: majority_party
 
-Finally, the SPD can govern alone! Our long campaign of electioneering has paid off. We do not need to worry about coalition government; anything is possible. 
+Finally, the Zentrum can govern alone! Our long campaign of electioneering has paid off. We do not need to worry about coalition government; anything is possible. [? if z_party_leader = "Kaas" : Ludwig Kaas had to be talked down from declaring Roman Catholicism the state religion. ?]
 
 Who should be chancellor?
 
-- @braun_majority_chancellor: Otto Braun for Chancellor.
-- @breitscheid_majority_chancellor: Rudolf Breitscheid for Chancellor.
-- @muller_majority_chancellor: Hermann Müller for Chancellor.
-- @wels_majority_chancellor: Otto Wels for Chancellor.
+- @bruning_majority_chancellor: Heinrich Brüning for Chancellor.
+- @wirth_majority_chancellor: Joseph Wirth for Chancellor.
+- @adenauer_majority_chancellor: Konrad Adenauer for Chancellor.
+- @papen_majority_chancellor: ...Franz Von Papen for Chancellor?
 
-@braun_majority_chancellor
+@bruning_majority_chancellor
 view-if: not historical_mode or not spd_prussia
-on-arrival: chancellor = "Braun"
+on-arrival: chancellor = "Brüning"
 
-[? if president == "Braun": Our experts have checked the constitution, and have discovered that there is no specific prohibition against the Chancellor also being the President (the President may not be a member of the Reichstag; there is no law saying that the Chancellor must be a member of the Reichstag). Thus, we have Chancellor-President Otto Braun. ?]
-[? if president != "Braun": Otto Braun has become chancellor of the SPD majority. ?]
 
-@breitscheid_majority_chancellor
-on-arrival: chancellor = "Breitscheid"
+Heinrich Brüning has become chancellor of the Zentrum majority.
 
-Rudolf Breitscheid has become chancellor of the SPD majority.
+@wirth_majority_chancellor
+on-arrival: chancellor = "Wirth"
 
-@muller_majority_chancellor
-view-if: muller_dead = 0
-on-arrival: chancellor = "Müller"
+Joseph has become chancellor of the Zentrum majority.
 
-Hermann Müller has become chancellor of the SPD majority.
-
-@wels_majority_chancellor
+@adenauer_majority_chancellor
 view-if: muller_dead = 1
-on-arrival: chancellor = "Wels"
+on-arrival: chancellor = "Adenauer"
 
-Otto Wels has become chancellor of the SPD majority.
+Konrad Adenauer has become chancellor of the SPD majority.
 
 # TODO: Otto Wels should be able to be chancellor of a Grand Coalition, Weimar Coalition, or SPD majority after Müller dies.
 
@@ -701,9 +678,7 @@ title: There is no clear governing majority.
 subtitle: President Braun faces a dilemma.
 view-if: president == "Braun" and (grand_coalition < 50 or grand_coalition_failed == 1)
 
-President Braun faces a dilemma. He desperately desires a socialist or at least democratic government, but the electoral results are not there for such. Article 48 has been used by Hindenburg to promulgate anti-democratic and anti-worker policies; can Article 48 be used for good as well as evil?
-
-- @emergency_braun: We will form an emergency government with Braun's support.
+President Braun faces a dilemma. He desperately desires a socialist or at least democratic government, but the electoral results are not there for such. Article 48 has been used by Hindenburg to us in power for stability. Could Braun be persuaded to do this for us again?
 - @new_elections: We will have new elections.
 - @new_grand_coalition
 - @left_coalition
