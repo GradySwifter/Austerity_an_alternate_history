@@ -83,12 +83,14 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 {!<span class="tooltip-text" title="The Left is a loose coalition of Catholic trade unionists and people who wish to cooperate with the SPD, as well as the odd Christian Socialist.">Left</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
 
-{!<span class="tooltip-text" title="The Center is a faction of Center Marxists, between reform and revolution.">Clerical</span>!} strength: [+ clerical_strength : strength +], dissent: [+ clerical_dissent : dissent +]
+{!<span class="tooltip-text" title="The Clericals are a faction of the priests in our party, who prioritize religion and social policy over economics..">Clerical</span>!} strength: [+ clerical_strength : strength +], dissent: [+ clerical_dissent : dissent +]
 
 {!<span class="tooltip-text" title="Our Right are those who swing further economically right than the majority of our party, and even some who would rather work with the DNVP than socialists.">Right</span>!} strength: [+ right_strength : strength +], dissent: [+ right_dissent : dissent +]
 
 [? if neorevisionism > 0 : Neorevisionist strength: [+ neorevisionist_strength : strength +], dissent: [+ neorevisionist_dissent : dissent +] ?]
 
+= Hindenburg's Mood
+[+ hindenburg_relation : hindenburgmood +]
 
 @paramilitaries
 on-arrival: {!
