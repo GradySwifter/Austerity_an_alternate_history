@@ -12,13 +12,16 @@ Leaders of the German Democratic Party, seeing the party's vote share fall over 
 
 This has led to outcry from the left wing of the party, progressives who would rather not work with antisemites and conservative nationalists.
 
-- @advantage: We can recruit disaffected progressives to the SPD.
 - @nothing: This is none of our concern.
+- @interesting: A merger with a nationalist paramilitary? Is it wrong to see great potential in sanctioning such actions?
 
-@advantage
-on-arrival: new_middle_spd += 5; peoples_party_support += 1; left_dissent += 5; reformist_strength += 3; neorevisionist_strength += 3; reformist_dissent -= 2; neorevisionist_dissent -= 2
+@interesting
+choose-if: z_party_leader = "Papen"
+unavailable-subtitle: On second thought, that's a terrible idea. Why would we ever do it?
+subtitle: Franz Von Papen certainly does.
+on-arrival: workers_z += 5; unemployed_z +=5; left_dissent += 10; right_strength += 3; right_dissent -= 2; clerical_dissent += 2; dnvp_relations +=5; sh_allied =1;
 
-With turmoil in the DDP, we have an opportunity to recruit middle-class progressives and portions of the liberal intelligensia into our party. The left of the SPD is opposed to this path, seeing it as diluting the class character of the party. On the other hand, revisionists support this course.
+Franz Von Papen attempts to engineer a merger with the political arm of the nationalist paramilitary group called the Stahlhelm. He had evidently forgotten that said political arm is the DNVP, which is quite a large party itself, and has no need of a merger. However, their leadership is amused at this attempt, and agrees to allow us Stahlhelm protection or our rallies.
 
 
 @nothing
