@@ -308,7 +308,7 @@ There are some potential coalition arrangements.
 # TODO: black-brown coalition
 
 
-@popular_front_coalition
+//@popular_front_coalition
 title: A new "Popular Front" coalition?
 subtitle: SPD + KPD + Z + [+ ddp_name +]  [? if sapd_formed: + SAPD ?]([+ popular_front_coalition +]%)
 unavailable-subtitle: SPD + KPD + Z + [+ ddp_name +] [? if sapd_formed: + SAPD ?]([+ popular_front_coalition +]%) - [? if ((kpd_relation < 65 and kpd_party_leader == "Thälmann") or (kpd_relation < 45 and kpd_party_leader == "Conciliators")): We do not have good enough relations with the KPD. ?][? if (z_relation < 45 and z_party_leader == "Joos") or (z_relation < 65 and z_party_leader != "Joos" and kpd_party_leader != "Conciliators") or (z_relation < 55 and z_party_leader != "Joos" and kpd_party_leader == "Conciliators"): We do not have good enough relations with the Center Party. ?][? if communist_coalition < 3 : The Communists are unwilling to compromise at all. ?]
@@ -322,7 +322,7 @@ The far-right might attempt a coup, if such a coalition were formed.
 - @popular_front_2: Form the Popular Front!
 - @great_popular_front: Form the Popular Front!
 
-@popular_front_2
+//@popular_front_2
 view-if: z_party_leader != "Joos" or kpd_party_leader != "Conciliators"
 
 Somehow, both the Communists and Center are at the very least willing to entertain negotiations. Of course, KPD radicals and Center conservatives derail the negotiations almost immediately. The KPD demands leadership of the coalition for themselves and their chairman Ernst Thälmann, [? if spd_r > kpd_r : despite our higher vote share, ?]while the Center is offended by the prospect of helping Bolsheviks enter government. *Something* must be done to restore balance.
@@ -352,7 +352,7 @@ title: Use pressure from President Braun to force the parties to cooperate.
 view-if: president == "Braun"
 go-to: popular_front_success
 
-@great_popular_front
+//@great_popular_front
 view-if: z_party_leader == "Joos" and kpd_party_leader == "Conciliators"
 on-arrival: spd_in_government = 1; in_popular_front = 1; chancellor = "Breitscheid"; chancellor_party = "SPD"; kpd_relation += 10; coup_progress += 2; in_left_front = 0; in_weimar_coalition = 0; in_grand_coalition = 0; coalition_dissent = 0;
 achievement: grosse_volksfront
@@ -420,26 +420,22 @@ on-arrival: coup_progress += 2
 
 President Braun faces a dilemma. Is it "democratic" to let democracy be destroyed, if the majority of voters have willed it so? Some, even on the left, suggest that the Nazis would not *truly* be as horrific as their platform suggests, and that giving them power would let them discredit themselves in the eyes of the public.
 
-Alternatively, Braun could use the emergency powers of the presidency. Article 48 has been used by Hindenburg to promulgate anti-democratic and anti-worker policies; can Article 48 be used for good as well as evil?
+Alternatively, Braun could use the emergency powers of the presidency. Article 48 had been used by Hindenburg to keep us in government to preserve stability and the Republic; perhaps Braun would be willing to continue this?
 
-- @emergency_braun: We will form an emergency government with Braun's support.
-- @new_elections: We will have new elections.
-- @far_right_win: Let the Nazis form their government.
+- @emergency_braun: We will not stand in Braun's way. He will form a minority government. Perhaps it will include us?
+- @new_elections: We will beg President Braun to have new elections.
+
 
 
 @left_coalition
-title: Is a United Left coalition possible?
+title: Oh God. The Socialists have won.
 subtitle: SPD + KPD [? if sapd_formed: + SAPD ?] ([+ left_coalition +]%)
-unavailable-subtitle: SPD + KPD [? if sapd_formed: + SAPD ?] ([+ left_coalition +]%). [? if kpd_relation < 50 : We do not have adequate relations with the KPD. ?][? if communist_coalition < 3 : The Communists are too committed to their radical ways to partake in government. ?]
-view-if: left_coalition >= 50
-choose-if: (kpd_relation >= 50 or (kpd_party_leader == "Conciliators" and kpd_relation >= 40)) and communist_coalition >= 3
+unavailable-subtitle: SPD + KPD [? if sapd_formed: + SAPD ?] ([+ left_coalition +]%). [? if spd_relation < 50 : The SPD is not so enamored with us that they will choose us over other Socialists. ?]
 
-There are enough votes for a SPD + KPD coalition government, if such a thing were actually possible.
+There are enough votes for a SPD + KPD coalition government. 
+The far-right might attempt a coup, if such a coalition were formed. We might be forced to join them.
 
-The far-right might attempt a coup, if such a coalition were formed.
-
-- @left_coalition_impossible: This is impossible.
-- @left_coalition_possible: This could be possible.
+- @left_coalition_victory: Centrism has lost. The people have bowed to political extremism, and a reign of terror against the religious is sure to be immanent. 
 
 @left_coalition_impossible
 go-to: coalition_menu
@@ -447,16 +443,8 @@ go-to: coalition_menu
 A far left coalition is impossible.
 
 
-@left_coalition_possible
 
-The KPD is still very reluctant to join a coalition, despite grassroots friendliness between our memberships. The Stalinist leadership is vehemently against such a thing. They demand the appointment of Ernst Thälmann as chancellor in exchange for a coalition. [? if president == "Hindenburg" : There is no chance whatsoever that President Hindenburg would approve of the appointment of a die-hard communist as chancellor. ?] Alternatively, if our relations with them are good enough, we could convince them to support the appointment of one of our centrist or left-leaning members as chancellor.
-
-- @thalmann_chancellor: Appoint Thälmann as chancellor.
-- @left_coalition_resources
-- @left_coalition_relations
-- @coalition_menu: Try a different governing arrangement.
-
-@thalmann_chancellor
+@left_coalition_victory
 choose-if: president == "Braun" and reformist_strength + neorevisionist_strength < left_strength
 unavailable-subtitle: [? if president != "Braun": President [+ president +] would never allow such a thing. ?] [? if reformist_strength >= left_strength : Most in the parliamentary party would not support Thälmann as chancellor. ?]
 on-arrival: chancellor = "Thälmann"; chancellor_party = "KPD"; kpd_relation = 80; in_left_front = 1; spd_in_government = 1 
