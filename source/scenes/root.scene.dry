@@ -47,14 +47,6 @@ Q.factions = ['left', 'center', 'labor', 'reformist', 'neorevisionist'];
 // should this be normalized to 100%?
 Q.left_strength = 15;
 Q.left_dissent = 20;
-Q.center_strength = 30;
-Q.center_dissent = 0;
-Q.labor_strength = 25;
-Q.labor_dissent = 5;
-Q.reformist_strength = 25;
-Q.reformist_dissent = 5;
-Q.neorevisionist_strength = 5;
-Q.neorevisionist_dissent = 10;
 Q.right_strength = 15;
 Q.right_dissent = 5;
 Q.clerical_strength = 20;
@@ -63,9 +55,9 @@ Q.clerical_dissent = 5;
 
 // secret events...
 Q.unions_independent = 0;
-Q.centrists_resign = 0;
+Q.church_disaffilates = 0;
 Q.left_split = 0;
-Q.reformists_resigned = 0;
+Q.right_resigns = 0;
 
 // have we discovered neorevisionism?
 Q.neorevisionism = 0;
@@ -121,7 +113,7 @@ Q.z_party_leader = "Marx";
 Q.nsdap_leader = "Hitler";
 
 // hmm... maybe we can play nice with Hindenburg???
-Q.hindenburg_relation = 50;
+Q.hindenburg_relation = 10;
 
 
 // Does the SPD lead in Prussia?
@@ -160,7 +152,7 @@ Q.prussian_police_loyalty = 0.5;
 // strength includes actual military and de facto reserves?
 Q.reichswehr_strength = 100;
 Q.reichswehr_militancy = 5;
-Q.reichswehr_loyalty = 0.2;
+Q.reichswehr_loyalty = 0.5;
 
 // The state of the country
 
@@ -350,7 +342,7 @@ Q.in_popular_front = 0;
 Q.in_left_front = 0;
 // emergency government containing the SPD: only president Braun can do this.
 Q.in_emergency_government = 0;
-Q.in_spd_majority = 0;
+Q.in_z_majority = 0;
 Q.grand_coalition_failed = 0;
 // if the SPD is ruling as part of a minority government
 Q.in_minority_government = 0;
