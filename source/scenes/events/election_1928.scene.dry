@@ -873,7 +873,7 @@ Brüning is not opposed to a coalition with us. Alternatively, we could enter a 
 
 @join_bruning
 view-if: grand_coalition >= 50 or neo_weimar_coalition >= 50
-on-arrival: spd_in_government = 1; spd_toleration = 0; in_grand_coalition = 1; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "DVP"; interior_minister_party = "Z"; justice_minister_party = "Z"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "Z"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; leverage = 25 if leverage >= 25;
+on-arrival: z_in_government = 1; spd_toleration = 0; in_grand_coalition = 1; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "DVP"; interior_minister_party = "Z"; justice_minister_party = "Z"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "Z"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; leverage = 25 if leverage >= 25;
 go-to: ministries
 
 Heinrich Brüning welcomes us into his new cabinet. Now, we have our pick of ministries.
@@ -947,9 +947,9 @@ The people's faith in democracy is shaken by this ordeal. Of course, the Nazis a
 @toleration_bruning
 choose-if: neo_weimar_coalition >= 50
 unavailable-subtitle: The parties supporting Brüning do not have a majority.
-on-arrival: spd_in_government = 0; spd_toleration = 1; minority_government = 1; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "DVP"; interior_minister_party = "Z"; justice_minister_party = "I"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = "DVP"; agriculture_minister_party = "Z"; pro_republic -= 4; new_middle_dvp -= 5; new_middle_ddp -= 5; old_middle_dvp -= 5; old_middle_ddp -= 5; old_middle_nsdap += 5; new_middle_nsdap += 5; rural_dnvp -= 5;
+on-arrival: z_in_government = 1; spd_toleration = 1; minority_government = 1; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "DVP"; interior_minister_party = "DVP"; justice_minister_party = "I"; labor_minister_party = "DDP"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = "DVP"; agriculture_minister_party = "Z"; pro_republic -= 4; new_middle_dvp -= 5; new_middle_ddp -= 5; old_middle_dvp -= 5; old_middle_ddp -= 5; old_middle_nsdap += 5; new_middle_nsdap += 5; rural_dnvp -= 5;
 
-We have decided to tolerate Brüning's government. This means that we will vote against no-confidence votes to make sure they fail, but also that we will not be directly participating as ministers in the government. Thus, we can prevent a new election and stop the far right from entering government.
+The SPD have decided to tolerate our government. This means that they will vote against no-confidence votes to make sure they fail, but also that they will not be directly participating as ministers in our government. Thus, we will have a government without the SPD but reliant on them.
 
 @grand_coalition_fail
 on-arrival: grand_coalition_failed = 1
@@ -964,11 +964,11 @@ Unfortunately, the DVP and BVP are unwilling to enter into another coalition wit
 - @coalition_menu: What are the other governing arrangements?
 
 
-@beg_dvp
+//@beg_dvp
 view-if: dvp_relation >= 15
 go-to: dvp_conservative if stresemann_dead == 1; dvp_majority if stresemann_dead == 0
 
-@dvp_majority
+//@dvp_majority
 go-to: join_bruning
 
 Under the influence of Gustav Stresemann, the DVP agrees to allow us into the coalition, and so does the BVP.
@@ -1005,39 +1005,37 @@ As expected, the DVP is too set in their anti-democratic ways.
 @grand_coalition_spd_lead
 on-arrival: leverage -= 15 if dvp_relation < 20
 
-As expected, the SPD is the largest party, and this time, we are expected to take the lead role in the formation of the next government, including selecting the chancellor. President [+ president +] has asked us to form a majority coalition with the Center (Z), Bavarian People's (BVP), Democratic ([+ ddp_name +]), and People's (DVP) parties.
+As expected, the SPD is the largest party, and this time, they are expected to take the lead role in the formation of the next government, including selecting the chancellor. We will still be able to negotiate for ministerial posts, however. But, it is possible that we could ask them to appoint a chancellor from our party.
 
 [? if dvp_relation < 20 : As our relation with the DVP is poor, they are demanding more minister posts in order to remain part of the coalition. ?]
 
 Who should be the chancellor?
 
 - @muller
-- @braun
 - @wels
-- @z_chancellor
 - @z_chancellor_wirth
 - @no_govt
 
 
 @muller
-title: Hermann Müller for Chancellor
+title: The SPD will select Hermann Müller for Chancellor
 view-if: muller_dead = 0
-subtitle: Muller is popular within the party, and is the preferred candidate of the Center and other parties.
-on-arrival: spd_in_government = 1; chancellor = "Müller"; chancellor_party = "SPD"; in_grand_coalition = 1 if in_weimar_coalition == 0
+subtitle: Muller is not terribly radical, and is our preferred SPD candidate.
+on-arrival: z_in_government = 1; chancellor = "Müller"; chancellor_party = "SPD"; in_grand_coalition = 1 if in_weimar_coalition == 0
 go-to: ministries
 
-Müller's appointment as chancellor is approved by all our potential allies.
+We have approved Müller's appointment as chancellor.
 
 @wels
 title: Otto Wels for Chancellor
 view-if: muller_dead = 1
-subtitle: Otto Wels is a party leader, but can he also be chancellor?
-on-arrival: spd_in_government = 1; chancellor = "Wels"; chancellor_party = "SPD"; in_grand_coalition = 1 if in_weimar_coalition == 0
+subtitle: Otto Wels is a party leader of the SPD, though untested. We might be able to leverage this fact to get more out of ministerial negotiations.
+on-arrival: z_in_government = 1; chancellor = "Wels"; chancellor_party = "SPD"; in_grand_coalition = 1 if in_weimar_coalition == 0; leverage += 10
 go-to: ministries
 
-Otto Wels's appointment as chancellor is approved by our potential allies.
+We have approved Otto Wels' appointment as chancellor.
 
-@braun
+//@braun
 title: Otto Braun for Chancellor
 view-if: not historical_mode or not spd_prussia
 subtitle: Braun is currently the Minister-President of Prussia, and is one of our most popular leaders. However, other parties may have qualms about concentrating too much power in one man.
@@ -1057,7 +1055,7 @@ go-to: ministries
 We have promised to let the Center have more influence in the government in response to the appointment of Braun as chancellor.
 
 
-@z_chancellor
+//@z_chancellor
 title: Let the Center Party have their chancellor.
 subtitle: Heinrich Brüning will be chancellor. This is unexpected and will cause internal dissent, but may give us a better position in negotiating for other cabinet positions.
 on-arrival: left_dissent += 5; center_dissent += 5; labor_dissent += 5; z_relation += 10; dvp_relation += 5; kpd_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Brüning"; chancellor_party = "Z"; spd_in_government = 1; leverage += 5
@@ -1069,13 +1067,13 @@ This is highly unexpected, and many in the left and center of our party are crit
 [? if year > 1928: Heinrich Brüning of the Center Party has been appointed chancellor. ?]
 
 @z_chancellor_wirth
-title: Let Joseph Wirth of the Center Party be chancellor.
+title: Can we convince them to appoint Joseph Wirth as chancellor?
 view-if: z_party_leader == "Joos"
 subtitle: Wirth is on the left wing of the Center Party. This may give us a better position in negotiating for other cabinet positions.
-on-arrival: left_dissent += 2; z_relation += 6; ddp_relation += 3; kpd_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Wirth"; chancellor_party = "Z"; spd_in_government = 1; leverage += 5
+on-arrival: left_dissent -= 2; spd_relation -= 1; ddp_relation += 3; kpd_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Wirth"; chancellor_party = "Z"; spd_in_government = 1; leverage -= 10
 go-to: ministries
 
-
+The SPD has found our suggestion of Joseph Wirth for chancellor acceptable, as he is on the left wing of our party and open to cooperation with them.
 
 
 @no_govt
@@ -1083,23 +1081,23 @@ title: We do not form the government.
 subtitle: This will cause significant internal dissent, and will lead to increased distrust from the bourgeois parties.
 on-arrival: reformist_dissent += 5; center_dissent += 5; labor_dissent += 5; neorevisionist_dissent += 5
 
-Are we sure about not participating in government? This will cause significant internal dissent, and will lead to increased distrust from the bourgeois parties. Even debating this option causes internal backlash. In addition, it is possible that the bourgeois and right-wing parties will also be unable to form a coalition government, leading to a regime appointed by President [+ president +].
-
+Are we sure about not participating in government? This will cause significant internal dissent, and will lead to increased distrust from the other parties. Even debating this option causes internal backlash. After all, we have been in every government formed in the Republic, and this would be a drastic deviation.
 - @muller
-- @braun
-- @z_chancellor
+- @z_chancellor_wirth
 - @no_govt_goals: Yes, we're sure.
 
 @no_govt_goals
 
 What are our goals here, exactly?
 
-- @majority: We hope to reach a socialist majority in the next election.
+- @majority: We hope to reach a Centrist majority in the next election.
 - @trap: It is a trap to form a government now. We would be unable to accomplish our goals.
-- @socialism: Revolutionary socialism is our goal.
+- @socialism: Revolutionary Centrism is our goal.
 
 @majority
 go-to: no_govt_2
+
+Good luck with that.
 
 @trap
 on-arrival: radicalization += 1
@@ -1108,9 +1106,10 @@ go-to: no_govt_2
 @socialism
 go-to: no_govt_2
 
+I'm sorry? Did I hear you correctly?
 
 @no_govt_2
-on-arrival: reformist_dissent += 25; center_dissent += 10; labor_dissent += 25; neorevisionist_dissent += 25; in_weimar_coalition = 0; in_grand_coalition = 0; chancellor = "Brüning" if chancellor == "Marx"; spd_in_government = 0; grand_coalition_failed = 1
+on-arrival: right_dissent += 25; clerical_dissent += 10; left_dissent += 25; neorevisionist_dissent += 25; in_weimar_coalition = 0; in_grand_coalition = 0; chancellor = "Brüning" if chancellor == "Marx"; spd_in_government = 0; grand_coalition_failed = 1
 go-to: right_coalition_post_spd if right_coalition >= 50 and president != "Braun" and year < 1929; new_elections_spd if (right_coalition < 50 or year >= 1929) and president != "Braun"; brauns_dilemma if president == "Braun"
 
 
@@ -1134,27 +1133,27 @@ We can pick from any number of ministries. Controlling a ministry allows us to d
 
 @labor
 title: Labor Ministry
-subtitle: Taking the Labor Ministry is expected of us.
+subtitle: Taking the Labor Ministry is not expected of us, and may anger the SPD.
 unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
-choose-if: leverage >= 5
-view-if: labor_minister_party != "SPD"
-on-arrival: leverage -= 5; labor_minister_party = "SPD"; labor_minister = "Wissell"
+choose-if: leverage >= 15
+view-if: labor_minister_party != "Z"
+on-arrival: leverage -= 5; labor_minister_party = "Z"; labor_minister = "Brauns"; spd_relation -= 5
 go-to: ministries
 
-Rudolf Wissell of the SPD has been appointed labor minister.
+Heinrich Brauns of the Zentrum has been appointed labor minister.
 
 @interior
 title: Interior Ministry
-subtitle: Taking the Interior Ministry is expected of us. The Interior Ministry controls domestic security.
+subtitle: Taking the Interior Ministry is not expected of us, though not unprecedented. The Interior Ministry controls domestic security.
 unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
-choose-if: leverage >= 5
-view-if: interior_minister_party != "SPD"
-on-arrival: leverage -= 5; interior_minister_party = "SPD"; interior_minister = "Severing"
+choose-if: leverage >= 10
+view-if: interior_minister_party != "Z"
+on-arrival: leverage -= 10; interior_minister_party = "Z"; interior_minister = "Wirth"
 go-to: ministries
 
-Carl Severing of the SPD has been appointed Interior Minister.
+Joseph Wirth of the Zentrum has been appointed Interior Minister.
 
 @finance
 title: Finance Ministry
@@ -1162,11 +1161,11 @@ subtitle: The Finance Ministry controls the government budget and taxes.
 unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
 choose-if: leverage >= 10 
-view-if: finance_minister_party != "SPD"
-on-arrival: leverage -= 10; finance_minister_party = "SPD"; finance_minister = "Hilferding"
+view-if: finance_minister_party != "Z"
+on-arrival: leverage -= 10; finance_minister_party = "Z"; finance_minister = "Hermes"
 go-to: ministries
 
-Rudolf Hilferding of the SPD has been appointed Finance Minister.
+Andreas Hermes of the Zentrum has been appointed Finance Minister.
 
 @economic
 title: Economic Ministry
@@ -1210,12 +1209,12 @@ title: Agricultural Ministry
 subtitle: This is not our usual domain.
 unavailable-subtitle: We do not have enough leverage.
 choose-if: leverage >= 10 
-view-if: agriculture_minister_party != "SPD"
-on-arrival: leverage -= 10; agriculture_minister_party = "SPD"; agriculture_minister = "Baade"
+view-if: agriculture_minister_party != "Z"
+on-arrival: leverage -= 10; agriculture_minister_party = "Z"; agriculture_minister = "Müller"
 go-to: ministries
 tags: mins_1928
 
-Fritz Baade of the SPD has been appointed Agriculture Minister.
+Karl Müller of the Zentrum has been appointed Agriculture Minister.
 
 @reichswehr
 title: Reichswehr Ministry
