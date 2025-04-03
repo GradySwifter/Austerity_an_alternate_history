@@ -21,7 +21,7 @@ Removing advisors will increase dissent from their faction of the party, while s
 
 @rm_main
 title: Remove advisors.
-tags: center_advisor, left_advisor, reformist_advisor, labor_advisor, neorev_advisor, nonfactional_advisor 
+tags: clerical_advisor, left_advisor, right_advisor, nonfactional_advisor 
 frequency: 1
 
 - #remove_advisor
@@ -33,14 +33,14 @@ go-to: root
 tags: remove_advisor
 
 
-@remove_hilferding
-title: Remove Hilferding
-view-if: hilferding_advisor = 1
-on-arrival: hilferding_advisor = 0; center_dissent += 5; n_advisors -= 1
+@remove_bruning
+title: Remove Brüning
+view-if: bruning_advisor = 1
+on-arrival: bruning_advisor = 0; right_dissent += 5; n_advisors -= 1
 tags: remove_advisor
 go-to: rm_main
 
-Hilferding has been removed as an advisor. The Centrist faction disapproves.
+Brüning has been removed as an advisor. The Right faction disapproves.
 
 @remove_wels
 title: Remove Wels
@@ -51,11 +51,11 @@ go-to: rm_main
 
 Wels has been removed as an advisor. The Centrist faction disapproves.
 
-@remove_muller
+@remove_kass
 title: Remove Müller
-view-if: muller_advisor = 1
+view-if: kass_advisor = 1
 tags: remove_advisor
-on-arrival: muller_advisor = 0; center_dissent += 5; n_advisors -= 1
+on-arrival: kass_advisor = 0; center_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
 Müller has been removed as an advisor. The Centrist faction disapproves.
@@ -280,80 +280,68 @@ tags: center_advisor, left_advisor, reformist_advisor, labor_advisor, neorev_adv
 frequency: 1
 
 
-- @centrist: Add Centrists
+- @clericalist: Add Clericals
 - @left: Add Leftists
-- @reformist: Add Reformists
-- @labor: Add Labor
-- @neorev: Add Neorevisionists
+- @right: Add Rightists
 - @nonfactional: Add non-factional advisors
 - @rm_main: Remove advisors instead.
 - @remove_none: Stop changing advisors.
 
-@centrist
+@clericalist
 view-if: n_advisors < 3
 
-- #center_advisor
+- #clericalist_advisor
 
-@reformist
+@right
 view-if: n_advisors < 3
 
-- #reformist_advisor
+- #right_advisor
 
 @left
 view-if: n_advisors < 3
 
 - #left_advisor
 
-@labor
-view-if: n_advisors < 3
-
-- #labor_advisor
-
-@neorev
-view-if: neorevisionism > 0 and n_advisors < 3
-
-- #neorev_advisor
-
 @nonfactional
 view-if: n_advisors < 3
 
 - #nonfactional_advisor
 
-@add_hilferding
-title: Rudolf Hilferding
-subtitle: Rudolf Hilferding is an economist and one of our chief Marxist theoreticians. {!<br><br>!}[? if difficulty < 0 : Actions - Against Right and Left, Defending Toleration, Fiscal Policy, Economic Democracy ?]
+@add_bruning
+title: Heinrich Brüning
+subtitle: Heinrich Brüning is a party leader and statesman. {!<br><br>!}[? if difficulty < 0 : Actions - Against Right and Left, Defending Toleration, Fiscal Policy, Economic Democracy ?]
 is-card: true
-card-image: img/portraits/HilferdingRudolf.jpg
-tags: center_advisor
-view-if: hilferding_advisor = 0 and n_advisors < 3 and centrists_resign = 0
-on-arrival: hilferding_advisor = 1; n_advisors += 1
+card-image: img/portraits/bruning.jpg
+tags: right_advisor
+view-if: bruning_advisor = 0 and n_advisors < 3 and rightists_resign = 0
+on-arrival: bruning_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
-Rudolf Hilferding is now an advisor.
+Heinrich Brüning is now an advisor.
 
-@add_wels
-title: Otto Wels
-subtitle: Otto Wels is a long-time party organizer and member of the leadership, serving under Friedrich Ebert. {!<br><br>!}[? if difficulty < 0 : Actions -  Clear the Agenda, Party Discipline, Emergency Fundraising ?]
+@add_marx
+title: Wilhelm Marx
+subtitle: Wilhelm Marx is a long-time party organizer and member of the leadership, and our Presidential candidate in the last elections. {!<br><br>!}[? if difficulty < 0 : Actions -  Build the Left, Negotiating with the Coalition, Emergency Fundraising ?]
 is-card: true
 card-image: img/portraits/WelsRudolf.jpg
-tags: center_advisor
-view-if: wels_advisor = 0 and n_advisors < 3 and centrists_resign = 0
-on-arrival: wels_advisor = 1; n_advisors += 1
+tags: left_advisor
+view-if: marx_advisor = 0 and n_advisors < 3 and leftists_resign = 0 and marx_resign = 0
+on-arrival: marx_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
-Otto Wels is now an advisor.
+Wilhelm Marx is now an advisor.
 
-@add_muller
-title: Hermann Müller
-subtitle: Hermann Müller is the last Social Democratic Chancellor. {!<br><br>!}[? if difficulty < 0 : Actions - Negotiating with the Coalition, Defending Toleration ?]
+@add_kass
+title: Ludwig Kaas
+subtitle: Ludwig Kaas is a major figure within the German Catholic Church, and has been a member of our party since the declaration of the Republic. He is also, as it happens, rather good at foreign relations. {!<br><br>!}[? if difficulty < 0 : Actions - Negotiating with the Coalition, Party Discipline, Foreign Policy ?]
 is-card: true
-card-image: img/portraits/MüllerHermann.jpg
-tags: center_advisor
-view-if: muller_advisor = 0 and muller_dead = 0 and n_advisors < 3 and centrists_resign = 0
-on-arrival: muller_advisor = 1; n_advisors += 1
+card-image: img/portraits/KaasLudwig.jpg
+tags: clerical_advisor
+view-if: kass_advisor = 0 and kass_dead = 0 and n_advisors < 3 and clericalists_resign = 0
+on-arrival: kass_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
-Hermann Müller is now an advisor.
+Ludwig Kaas is now an advisor.
 
 @add_breitscheid
 title: Rudolf Breitscheid
