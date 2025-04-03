@@ -4,7 +4,7 @@ is-card: true
 tags: govt_affairs
 on-arrival: month_actions += 1; foreign_policy_timer += 8
 view-if: z_in_government = 1 and foreign_minister_party = "Z" and  foreign_policy_timer <= 0
-card-image: img/portraits/BreitscheidRudolf.jpg
+card-image: img/portraits/KaasLudwig.jpg
 go-to: fp_menu
 #subtitle: International relations and dealing with Versailles.
 
@@ -31,9 +31,9 @@ What should our foreign policy priority be?
 
 @improve_west
 title: Improve our relations with the Western Allies.
-on-arrival: west_relation += 2; reparations_negotiation += 1
+on-arrival: west_relation += 2; reparations_negotiation += 1 [? if young_plan_seen ==0 : west_relation += 1; reparations += 1 ?]
 
-The key to peace in Europe is a rapproachment between France and Germany. We are taking steps towards that rapproachment. [? if young_plan_seen == 0 : This is difficult to do when France is occupying a major portion of Germany's territory, but we are working on that part. ?]
+The key to peace in Europe is a rapproachment between France and Germany. We are taking steps towards that rapproachment. [? if young_plan_seen == 0 : This is difficult to do when France is occupying a major portion of Germany's territory, but we are working on that part. Ludwig Kaas, luckily, has cultivated several friendships with some of the occupying officers, allowing the negotiations to proceed even more smoothly. ?]
 
 @improve_east
 title: Improve our relations with our eastern neighbors.
@@ -155,12 +155,11 @@ max-visits: 1
 @concordat_negotiate
 title: Negotiate a Concordat between the Germany and the Vatican.
 view-if: prussian_concordat = 1 and reichskonkordat = 0 and reichskonkordat_progress < 4
-on-arrival: reichskonkordat_progress += 2; reichskonkordat_progress -= 1 if abortion_rights; reichskonkordat_progress -= 1 if family_law; clerical_dissent -= 4
+on-arrival: reichskonkordat_progress += 3; reichskonkordat_progress -= 1 if abortion_rights; reichskonkordat_progress -= 1 if family_law; clerical_dissent -= 4
 
 The Roman Catholic Church is interested in furthering relations with the German Republic, seeing us as preferable to the old anti-Catholic policies of the Empire. We are working towards the signing of a Concordat, an agreement between the Vatican and the Republic that formally recognizes the Church's rights and interests in the country. This has been one of our main foreign policy goals, and is of particular importance to our foreign minister, Ludwig Kaas.
 
 [? if family_law : Our liberalized divorce policies make it difficult to build relations with the Vatican. ?] [? if abortion : Our legalization of abortion make it difficult to connect with the Church. ?]
-
 @concordat
 title: We can sign a Concordat with the Vatican!
 view-if: reichskonkordat_progress >= 4 and reichskonkordat = 0
