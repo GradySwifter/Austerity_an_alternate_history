@@ -17,11 +17,11 @@ if (Q.inflation) {
 Resources available: [+ resources +]
 
 Zentrum position: [? if z_minority : minority government ?][? if z_in_government : in government - ?][? if z_caretaker : caretaker government ?]
-[? if in_weimar_coalition and spd_in_government: Weimar Coalition ?][? if in_grand_coalition and z_in_government: Grand Coalition ?][? if in_popular_front and z_in_government: Popular Front ?][? if in_left_front and spd_in_government: Opposition ?][? if in_z_majority and z_in_government: Zentrum majority ?][? if in_minority_government and z_in_government: minority government ?][? if in_emergency_government and z_in_government: emergency government ?]
+[? if in_weimar_coalition and z_in_government: Weimar Coalition ?][? if in_grand_coalition and z_in_government: Grand Coalition ?][? if in_popular_front and z_in_government: Popular Front ?][? if in_left_front and z_in_government: Opposition ?][? if in_z_majority and z_in_government: Zentrum majority ?][? if in_minority_government and z_in_government: minority government ?][? if in_emergency_government and z_in_government: emergency government ?]
 
-[? if spd_in_government and not in_spd_majority and not in_left_front : Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
+[? if z_in_government and not in_spd_majority and not in_left_front : Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
 
-[? if spd_in_government and (in_left_front or in_popular_front): KPD coalition dissent: [+ kpd_coalition_dissent : coalition_dissent +] ?]
+[? if z_in_government and (in_left_front or in_popular_front): KPD coalition dissent: [+ kpd_coalition_dissent : coalition_dissent +] ?]
 
 Internal dissent: [+ dissent_percent : dissent +]
 
@@ -51,7 +51,7 @@ Reichstag composition:
 # 1928: 9, 1930: 10
 Others: [+ other_r +]%
 
-[? if spd_in_government = 1 : Budget: [+ budget +] ?]
+[? if z_in_government = 1 : Budget: [+ budget +] ?]
 
 Inflation: [+ inflation_2 +]%
 
@@ -136,7 +136,7 @@ Prussian police: [+ prussian_police_strength +] thousand members.
 
 Prussian police loyalty: [+ prussian_police_loyalty : loyalty +]
 
-[? if spd_in_government : Interior police loyalty: [+ interior_police_loyalty : loyalty +] ?]
+[? if z_in_government : Interior police loyalty: [+ interior_police_loyalty : loyalty +] ?]
 
 @polls
 

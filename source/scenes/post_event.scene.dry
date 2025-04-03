@@ -330,7 +330,7 @@ if (Q.month_actions >= 1) {
             Q.unemployed_nsdap += 3/12;
             Q.old_middle_nsdap += 3/12;
             Q.new_middle_nsdap += 2/12;
-            if (Q.spd_in_government) {
+            if (Q.z_in_government) {
                 Q.workers_spd -= 4/12;
             }
         }

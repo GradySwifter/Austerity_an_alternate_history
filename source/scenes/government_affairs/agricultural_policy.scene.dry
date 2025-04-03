@@ -2,7 +2,10 @@ title: Agricultural Policy
 new-page: true
 is-card: true
 on-arrival: agricultural_policy_timer += 6; month_actions += 1
+<<<<<<< HEAD
+
 view-if:z_in_government = 1 and (agriculture_minister_party = "Z") and agricultural_policy_timer == 0
+>>>>>>> d696f42f1f9d5555de580493fda98ead95a7aec3
 card-image: img/portraits/BaadeFritz.jpg
 tags: govt_affairs
 #subtitle: Issues of farmer financing, grain purchasing, and land reform.

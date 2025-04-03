@@ -1,0 +1,17 @@
+title: The Chancellorship of Franz Von Papen
+new-page: true
+is-card: true
+tags: govt_affairs
+on-arrival: papen_policy_timer += 6; month_actions += 1
+view-if: z_in_government = 1 and chancellor = "Papen" and papen_policy_timer <= 0
+card-image: img/portraits/PapenFranz.jpg
+#subtitle: Papen has plans. Not good ones, but plans.
+
+= The Chancellorship of Franz Von Papen
+
+Now that he has been elevated to the office of Chancellor, Papen can finally execute the ideas he has had for so long. We can only hope he does not destroy our party in doing so.
+
+- @Papenomics: Embark on a comprehensive plan to fix the economy, using tax cuts on the wealthy, requiring tests for unemployment insurance, and global wage cuts.
+- @nazinegos: Negotiate with the NSDAP to gain their toleration for a Papen government. 
+- @dictator: Dissolve the Reichstag and suspend elections indefinitely. 
+- @prussiancoup: Reichsexecute the government of Prussia. 
