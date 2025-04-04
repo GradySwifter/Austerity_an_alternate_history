@@ -1,0 +1,39 @@
+title: The SPD breaks toleration! 
+subtitle: Our policies have angered them excessively...
+new-page: true
+view-if: z_in_government = 1 and in_minority_government = 1 and spd_coalition_dissent >= 3 and not constructive_vonc 
+tags: event
+
+= Toleration broken
+
+
+The Social Democratic Party has called for a vote of no confidence against our minority cabinet despite our prior toleration agreement, due to our various policies and disagreements. If this suceeds, there will be an election in a few months. 
+
+
+- @spd_assuage: Try to assuage the SPD.
+- @let_it_happen: Let the vote happen.
+
+@spd_assuage: 
+
+How can we try to assuage the SPD?
+
+
+- @resourcespd: Use our resources to calm the SPD
+- @welfare: Enact a massive increase in welfare
+- @let_it_happen: Never mind, just let the vote through.
+
+@resourcespd
+choose-if: resources >= 3
+unavailable-subtitle: We do not have enough resources.
+subtitle: -3 resources
+on-arrival: resources -= 3; spd_coalition_dissent -= 1;
+
+By transferring resources to the SPD, we can reduce their dissent against our policies. This is a crude, but effective solution.
+
+@welfare 
+choose-if: Q.chancellor is not "Brüning" or budget >=3
+unavailable-subtitle: Brüning would never allow this to happen without a surplus.
+subtitle: -2 budget
+on-arrival: budget -=2; spd_coalition_dissent == 0; spd_relation +=7; right_dissent +=9; clerical_dissent +=3; hindenburg_relation -=2; dvp_relation -=4; welfare +=2; workers_spd +=10; unemployed_spd +=10; unemployed_z +=2;
+
+We have enacted sweeping increases to welfare, to the horror of our right wing and our coalition partners. The SPD have used this as a key element of their campainging, and they have swayed most of the voters we could have gotten.

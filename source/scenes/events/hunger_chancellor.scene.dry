@@ -2,7 +2,7 @@ title: The Hunger Chancellor
 subtitle: Popular discontent with Chancellor [+ chancellor +] rises.
 new-page: true
 view-if: year >= 1931 and month >= 2 and unemployed >= 18 and welfare < 0 and works_program == 0
-on-arrival: workers_spd *= 0.9 if chancellor_party == "SPD"; workers_spd *= 0.9 if z_in_government == 1; workers_nsdap += 5 if z_in_government; workers_kpd += 5 if z_in_government; unemployed_nsdap += 5 if z_in_government
+on-arrival: workers_spd *= 0.9 if chancellor_party == "SPD"; workers_z *= 0.9 if z_in_government == 1; workers_nsdap += 5 if z_in_government; workers_kpd += 5 if z_in_government; unemployed_nsdap += 5 if z_in_government
 tags: event
 max-visits: 1
 face-image: img/Kollwitz_Hospital.jpg
@@ -11,24 +11,32 @@ face-image: img/Kollwitz_Hospital.jpg
 
 People are calling Chancellor [+ chancellor +] the Hunger Chancellor because of his perceived callousness in the face of the depression. [? if chancellor_party == "SPD" or z_in_government : This is obviously a very bad sign for us. ?]
 
-[? if spd_toleration == 1 : As we are currently tolerating the [+ chancellor +] government, this could very well reflect badly on us. ?]
+[? if spd_toleration == 1 : Since the SPD is currently tolerating the [+ chancellor +] government, they could very well use this as a pretense to bring down our government. ?]
 
-- @maintain_toleration: Maintain the current governing arrangement.
-- @break_toleration: Break toleration; vote against this government.
+- @maintain_toleration: The SPD are still willing to maintain the current governing arrangement.
+- @maintain_toleration_bribe: Beg the SPD to maintain the current governing arrangement.
+- @break_toleration: The SPD will break toleration, and vote against our government.
 
 @maintain_toleration
-subtitle: It is necessary to preserve democracy.
-view-if: spd_toleration == 1
-on-arrival: workers_nsdap += 5; workers_kpd += 5; unemployed_nsdap += 5; workers_spd -= 5; pro_republic -= 5; kpd_relation -= 5
+subtitle: They are friendly enough towards us to make this sacrifice.
+view-if: spd_toleration == 1 and spd_relation > 55
+on-arrival: workers_nsdap += 5; workers_kpd += 5; spd_relation -=4; unemployed_nsdap += 5; workers_spd -= 5; pro_republic -= 5;
 
-Our policy of toleration continues.
+The SPD's policy of toleration continues. Our government will stay afloat a little longer.
+
+@maintain_toleration_bribe
+subtitle: -2 Resources
+view-if: spd_toleration == 1 and spd_relation < 55 and resources >= 2
+on-arrival: workers_nsdap += 5; workers_kpd += 5; spd_relation +=1; unemployed_nsdap += 5; workers_spd -= 5; pro_republic -= 5; resources -= 1;
+
+The SPD has accepted our funding and our pleas, and will not break toleration yet. 
 
 
 @break_toleration
-subtitle: This is likely to result in new elections.
-view-if: spd_toleration == 1
+subtitle: The SPD is no longer willing to tolerate our government, and will cause new elections.
+view-if: spd_toleration == 1 and spd_relation < 40
 on-arrival: next_election_time = time+3 if next_election_time >= time+3; next_election_month = month + 3 if next_election_time >= time+3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; z_in_government = 0; in_grand_coalition = 0; spd_toleration = 0;
 
-We have definitively broken with the [+ chancellor +] government, and have voted against them in a vote of no confidence.
+The SPD has definitively broken with the [+ chancellor +] government, and have voted against us in a vote of no confidence.
 
 New elections have been set for [+ next_election_month : month +] [+ next_election_year +].

@@ -19,7 +19,7 @@ This has led to outcry from the left wing of the party, progressives who would r
 choose-if: z_party_leader = "Papen"
 unavailable-subtitle: On second thought, that's a terrible idea. Why would we ever do it?
 subtitle: Franz Von Papen certainly does.
-on-arrival: workers_z += 5; unemployed_z +=5; left_dissent += 10; right_strength += 3; right_dissent -= 2; clerical_dissent += 2; dnvp_relations +=5; sh_allied =1;
+on-arrival: workers_z += 5; unemployed_z +=5; rural_z +=2; left_dissent += 10; right_strength += 3; right_dissent -= 2; clerical_dissent += 2; dnvp_relations +=5; sh_allied =1;
 
 Franz Von Papen attempts to engineer a merger with the political arm of the nationalist paramilitary group called the Stahlhelm. He had evidently forgotten that said political arm is the DNVP, which is quite a large party itself, and has no need of a merger. However, their leadership is amused at this attempt, and agrees to allow us Stahlhelm protection or our rallies.
 

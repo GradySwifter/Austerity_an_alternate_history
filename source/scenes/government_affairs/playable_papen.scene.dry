@@ -2,7 +2,7 @@ title: The Chancellorship of Franz Von Papen
 new-page: true
 is-card: true
 tags: govt_affairs
-on-arrival: papen_policy_timer += 6; month_actions += 1
+on-arrival: papen_policy_timer += 10; month_actions += 1
 view-if: z_in_government = 1 and chancellor = "Papen" and papen_policy_timer <= 0
 card-image: img/portraits/PapenFranz.jpg
 #subtitle: Papen has plans. Not good ones, but plans.
