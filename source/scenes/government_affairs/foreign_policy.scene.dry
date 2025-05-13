@@ -31,7 +31,7 @@ What should our foreign policy priority be?
 
 @improve_west
 title: Improve our relations with the Western Allies.
-on-arrival: west_relation += 2; reparations_negotiation += 1 [? if young_plan_seen ==0 : west_relation += 1; reparations += 1 ?]
+on-arrival: west_relation += 2; reparations_negotiation += 1 [? if young_plan_seen == 0 : west_relation += 1; reparations_negotiation += 1 ?]
 
 The key to peace in Europe is a rapproachment between France and Germany. We are taking steps towards that rapproachment. [? if young_plan_seen == 0 : This is difficult to do when France is occupying a major portion of Germany's territory, but we are working on that part. Ludwig Kaas, luckily, has cultivated several friendships with some of the occupying officers, allowing the negotiations to proceed even more smoothly. ?]
 
@@ -43,14 +43,12 @@ We also aim to improve relations with our eastern neighbors, Poland and Czechosl
 
 @improve_soviet
 title: Improve our relations with the Soviet Union.
-subtitle: We could also broach the question of the KPD...
+subtitle: Distasteful, but they have been helping with our rearmament...
 
 The Soviet Union also suffered from the international order created by the Treaty of Versailles; they have been participating in our secret rearmament program. The Treaty of Rapallo in 1922 affirmed our friendly relations.
 
-The Soviets are asking for economic and developmental assistance. They are still a poor country on the whole, and are desperately trying to catch up to the western powers. There is a chance that our anti-communist coalition partners would be upset, but we could assuage them by asking the Soviets for secret assistance in training and equiping the Reichswehr.
-
+The Soviets are asking for economic and developmental assistance. They are still a poor country on the whole, and are desperately trying to catch up to the western powers. 
 - @soviet_economic_aid_yes_mil: Provide aid, in exchange for Reichswehr assistance.
-- @soviet_economic_aid_yes: Provide aid, in exchange for only good relations.
 - @soviet_economic_aid_no: Don't provide aid.
 
 @soviet_economic_aid_yes_mil
@@ -155,7 +153,7 @@ max-visits: 1
 @concordat_negotiate
 title: Negotiate a Concordat between the Germany and the Vatican.
 view-if: prussian_concordat = 1 and reichskonkordat = 0 and reichskonkordat_progress < 4
-on-arrival: reichskonkordat_progress += 3; reichskonkordat_progress -= 1 if abortion_rights; reichskonkordat_progress -= 1 if family_law; clerical_dissent -= 4
+on-arrival: reichskonkordat_progress += 4; reichskonkordat_progress -= 1 if abortion_rights; reichskonkordat_progress -= 1 if family_law; clerical_dissent -= 4
 
 The Roman Catholic Church is interested in furthering relations with the German Republic, seeing us as preferable to the old anti-Catholic policies of the Empire. We are working towards the signing of a Concordat, an agreement between the Vatican and the Republic that formally recognizes the Church's rights and interests in the country. This has been one of our main foreign policy goals, and is of particular importance to our foreign minister, Ludwig Kaas.
 
@@ -178,13 +176,13 @@ view-if: reparations <= -2 and eu_progress < 2
 choose-if: west_relation >= 5 and east_relation >= 4
 on-arrival: eu_progress += 1; west_relation += 1
 
-Forming a "United States of Europe" has long been part of the Social Democratic foreign program. Finally, we are taking steps towards it. Given our positive relations with the other countries of Europe, we can begin to hold multilateral negotiations for more European federalism. It will take time to hammer out the exact shape of this future "European Union", however.
+Forming a "United States of Europe" has long been a goal of certain members of ours, such as Konrad Adenauer. Finally, we are taking steps towards it. Given our positive relations with the other countries of Europe, we can begin to hold multilateral negotiations for more European federalism. It will take time to hammer out the exact shape of this future "European Union", however.
 
 
 @european_union_2
 title: We can sign a treaty to form a European Union!
 view-if: west_relation >= 5 and east_relation >= 4 and eu_progress >= 2
-on-arrival: eu = 1; unemployed -= 2 if unemployed >= 10; inflation += 2 if inflation <= -2; inflation -= 1 if inflation >= 4.5; workers_spd += 5*(1-dissent); new_middle_spd += 5*(1-dissent); old_middle_spd += 5*(1-dissent); rural_spd += 4*(1-dissent); catholics_spd += 4*(1-dissent); unemployed_spd += 4*(1-dissent); pro_republic += 5; nationalism -= 5; budget += 1
+on-arrival: eu = 1; unemployed -= 2 if unemployed >= 10; inflation += 2 if inflation <= -2; inflation -= 1 if inflation >= 4.5; workers_z += 5*(1-dissent); new_middle_z += 5*(1-dissent); old_middle_z += 5*(1-dissent); rural_z += 4*(1-dissent); catholics_z += 4*(1-dissent); unemployed_z += 4*(1-dissent); pro_republic += 5; nationalism -= 5; budget += 1
 max-visits: 1
 achievement: eu
 
