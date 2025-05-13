@@ -16,8 +16,8 @@ In our media and campaign materials, who should we consider as our main opponent
 - @anti_dem: The anti-democratic parties of the far right and left - the KPD, NSDAP, and DNVP.
 - @far_right: The far right - the NSDAP and DNVP.
 - @nsdap: The NSDAP alone.
-- @kpd: The KPD.
-- @bourgeois: The bourgeois parties - the Center and DVP.
+- @kpd: The KPD alone.
+- @left: The leftist parties - the SPD and KPD.
 - @easy_discard
 
 @anti_dem
@@ -40,7 +40,7 @@ on-arrival: enemies = "KPD"; reformist_strength += 5; left_dissent += 8; reformi
 
 Attacking the KPD is supported by all but the most left-wing socialists, and wins us some measure of approval among the bourgeois parties. However, If we are to reconcile with the KPD, this may not be the best choice.
 
-@bourgeois
-on-arrival: enemies = "bourgeois parties"; left_strength += 8; left_dissent -= 5; dvp_relation -= 5; z_relation -= 5; kpd_relation += 5; reformist_dissent += 8; workers_z -= 3; coalition_dissent += 1
+@left
+on-arrival: enemies = "leftist parties"; right_strength += 8; left_dissent += 5; spd_relation -= 5; dnvp_relation += 5; dvp_relation += 5; right_dissent -= 8; workers_spd -= 3; workers_kpd -= 2; spd_coalition_dissent += 1
 
-Our anti-bourgeois rhetoric is popular among the left, but may make it harder to build the coalitions that are necessary for government in the future.
+Our anti-leftist rhetoric is popular among the right, but may make it harder to build the coalitions that are necessary for government in the future. The SPD is a trusted ally of ours, after all.
